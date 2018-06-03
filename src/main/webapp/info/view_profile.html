@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>View_profile</title>
+
+<link href="head/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="head/css/style.css" type="text/css" rel="stylesheet" media="all">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<!----font-Awesome----->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!----font-Awesome----->
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+</head>
+<body>
+
+
+
+<div class="top-nav">
+		<nav class="navbar navbar-default ">
+			<div class="container">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed navbar-fixed-top" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1><a class="navbar-brand wow bounceIn animated" data-wow-delay=".5s" style="visibility: visible; -webkit-animation-delay: .5s;" href="index.html">Ramble</a></h1>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="hvr-bounce-to-bottom active"><a href="index.html">首页</a></li>
+						<li class="hvr-bounce-to-bottom"><a href="#about" class="scroll">图书导航</a></li>
+						<li class="hvr-bounce-to-bottom"><a href="#team" class="scroll">图书搜索</a></li>
+						
+					</ul>	
+					<div class="clearfix"> </div>
+				</div>
+			</div>	
+		</nav>		
+	</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============================  Navigation Start =========================== -->
+
+ 
+<!-- ============================  Navigation End ============================ -->
+<div class="grid_3">
+  <div class="container">
+   <div class="breadcrumb1">
+     <ul>
+        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <span class="divider">&nbsp;|&nbsp;</span>
+        <li class="current-page">图书详情</li>
+     </ul>
+   </div>
+   <div class="profile">
+   	 <div class="col-md-8 profile_left">
+   	 	<h2>孤独六讲</h2>
+   	 	<div class="col_3">
+   	        <div class="col-sm-4 row_2">
+				<div class="flexslider">
+					 <ul class="slides">
+						<li data-thumb="img/c1.jpg">
+							<img src="img/c1.jpg" />
+						</li>
+						<li data-thumb="img/c1.jpg">
+							<img src="img/c1.jpg" />
+						</li>
+						
+					 </ul>
+				  </div>
+			</div>
+			<div class="col-sm-8 row_1">
+				<table class="table_working_hours">
+		        	<tbody>
+		        		<tr class="opened_1">
+							<td class="day_label">书名 :</td>
+							<td class="day_value">孤独六谈</td>
+						</tr>
+					    <tr class="opened">
+							<td class="day_label">作者:  :</td>
+							<td class="day_value">蒋勋</td>
+						</tr>
+					    <tr class="opened">
+							<td class="day_label">出版社 :</td>
+							<td class="day_value">长江文艺出版社</td>
+						</tr>
+					    <tr class="opened">
+							<td class="day_label">出版年 :</td>
+							<td class="day_value">2017-4</td>
+						</tr>
+					    <tr class="opened">
+							<td class="day_label">定价 :</td>
+							<td class="day_value">48.00元</td>
+						</tr>
+					    <tr class="closed">
+							<td class="day_label">ISBN :</td>
+							<td class="day_value closed"><span>9787535492838</span></td>
+						</tr>
+					   
+						
+				    </tbody>
+				</table>
+				
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="col_4">
+		    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+			   <ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
+				  <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">About Book</a></li>
+				  <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">备用</a></li>
+				  <li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">备用</a></li>
+			   </ul>
+			   <div id="myTabContent" class="tab-content">
+				  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+				    <div class="tab_box">
+				    	<h1>内容简介  </h1>
+				    	<p>《孤独六讲》是美学大师蒋勋的经典代表作，于初版十周年之际重磅回归。新版收录蒋勋亲作长序——“做完整的自己”，与读者再谈生命个体的孤独与完整。</p>
+				    </div>
+					
+					<div class="tab_box">
+				    	<h1>短评  </h1>
+				    	<p>蒋勋先生可以将所有的事物加上自己美学的理解，而所有的这些理解也因此变得不同寻常。这本书对于人性与社会的思考非常透彻，并且最终找到了一个表征这些思考的出口——孤独。</p>
+				    <hr width="80%" align="conter"size="5px" >
+					<p>蒋勋先生可以将所有的事物加上自己美学的理解，而所有的这些理解也因此变得不同寻常。这本书对于人性与社会的思考非常透彻，并且最终找到了一个表征这些思考的出口——孤独。</p>
+					 <hr width="80%" align="conter"size="5px" >
+					 <p>蒋勋先生可以将所有的事物加上自己美学的理解，而所有的这些理解也因此变得不同寻常。这本书对于人性与社会的思考非常透彻，并且最终找到了一个表征这些思考的出口——孤独。</p>
+					  <hr width="80%" align="conter"size="5px" >
+					  <p>蒋勋先生可以将所有的事物加上自己美学的理解，而所有的这些理解也因此变得不同寻常。这本书对于人性与社会的思考非常透彻，并且最终找到了一个表征这些思考的出口——孤独。</p>
+					
+					</div>
+				   
+				    	
+				    </div>
+				  </div>
+				 
+				
+	   </div>
+   	 </div>
+   
+        	   
+         </div>
+        </div>
+       <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- FlexSlider -->
+<script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>   
+</body>
+</html>	

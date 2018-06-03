@@ -1,0 +1,54 @@
+package org.kim.entity;
+
+/**
+ * Created by ABEL on 2017/3/21.
+ */
+public class User {
+
+    private  String  UserName;
+    private  String  PassWord;
+    private  String  mobile;
+    private  String  code;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public User(String userName, String passWord) {
+        UserName = userName;
+        PassWord = passWord;
+
+    }
+
+    public User() {
+        super();
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getPassWord() {
+        return PassWord;
+    }
+
+    public void setPassWord(String passWord) {
+        PassWord = passWord;
+    }
+}

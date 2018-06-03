@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.kim.dao.UserMapper">
+
+    <!--注册-->
+    <insert id="save" parameterType="org.kim.entity.User">
+        insert into userInfo(UserName,PassWord,mobile) values(#{UserName},#{PassWord},#{mobile})
+    </insert>
+     <!--通过手机号查找-->
+    <select id="selectBymobile" parameterType="java.lang.String"  resultType="User">
+        select  *  from userInfo where  mobile = #{mobile} OR username =#{username}
+    </select>
+
+    <!--订单-->
+    <insert id="order" parameterType="org.kim.entity.OrderInfo" >
+        insert into orderInfo(id,username,phone,isbn,mail,returntime,address) values(#{id},#{username},#{phone},#{isbn},#{mail},#{returntime},#{address})
+    </insert>
+    <!--通过用户名查找-->
+    <select id="selectOrder" parameterType="java.lang.String"  resultMap="getResultMap">
+        select  *  from orderInfo where  username = #{username}
+    </select>
+    <resultMap id="getResultMap" type="OrderInfo">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="phone" column="phone"/>
+        <result property="isbn" column="isbn"/>
+        <result property="borrowtime" column="borrotime"/>
+        <result property="returntime" column="returntime"/>
+    </resultMap>
+
+<select id="BookSort" parameterType="java.lang.String" resultMap="SortMap">
+    SELECT * FROM  bookinfo WHERE sort=#{sort}
+</select>
+
+
+    <resultMap id="SortMap" type="org.kim.entity.Book">
+        <result property="sort" column="sort"/>
+        <result property="bookname" column="bookname"/>
+        <result property="isbn" column="isbn"/>
+        <result property="actor" column="actor"/>
+        <result property="address" column="address"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <select id="AllBook" parameterType="java.lang.String" resultMap="AllBookResult">
+        SELECT * FROM  bookinfo
+    </select>
+
+
+    <resultMap id="AllBookResult" type="org.kim.entity.Book">
+        <result property="sort" column="sort"/>
+        <result property="bookname" column="bookname"/>
+        <result property="isbn" column="isbn"/>
+        <result property="actor" column="actor"/>
+        <result property="address" column="address"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <select id="SelectAllInfo" resultType="org.kim.entity.User">
+        SELECT * FROM userinfo
+    </select>
+
+
+    <select id="SelectBookByAuthorOrName" parameterType="java.lang.String" resultMap="SelectByNameOrAuthorMap">
+        SELECT * FROM  bookinfo WHERE  bookname=#{bookname} OR isbn=#{isbn} OR actor=#{actor} OR bookname LIKE #{bookname}
+    </select>
+    <resultMap id="SelectByNameOrAuthorMap" type="org.kim.entity.Book">
+        <result property="sort" column="sort"/>
+        <result property="bookname" column="bookname"/>
+        <result property="isbn" column="isbn"/>
+        <result property="actor" column="actor"/>
+        <result property="address" column="address"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+
+    <select id="SelectKeepBookByUsername" parameterType="java.lang.String" resultMap="KeepBookResultMap">
+        SELECT * FROM  keepbook WHERE  username=#{username}
+    </select>
+    <resultMap id="KeepBookResultMap" type="org.kim.entity.OrderInfo">
+        <result property="bookname" column="bookname"/>
+        <result property="actor" column="actor"/>
+        <result property="address" column="address"/>
+        <result property="isbn"    column="isbn"/>
+        <result property="sort" column="sort"/>
+    </resultMap>
+
+
+    <select id="SelectHistoryByUsername" parameterType="java.lang.String" resultMap="HistoryResultMap">
+        SELECT * FROM  history WHERE  username=#{username}
+    </select>
+    <resultMap id="HistoryResultMap" type="org.kim.entity.History">
+        <result property="object" column="object"/>
+    </resultMap>
+
+
+
+
+
+    <select id="selectPersonInfo" parameterType="java.lang.String"  resultType="org.kim.entity.Person">
+        select  *  from person where  username = #{username}
+    </select>
+
+     <insert id="InsertPersonInfo" parameterType="org.kim.entity.Person">
+         INSERT INTO person(username,name,sex,address,mail)values
+         (#{username},#{name},#{sex},#{address},#{mail})
+     </insert>
+
+    <update id="updatePersonInfo" parameterType="org.kim.entity.Person">
+        UPDATE  person SET name=#{name},sex=#{sex},address=#{address},mail=#{mail}WHERE username=#{username}
+    </update>
+
+    <update id="updatePassword" parameterType="org.kim.entity.User">
+        UPDATE  userinfo SET PassWord=#{PassWord}WHERE mobile=#{mobile}
+    </update>
+
+    <insert id="KeepBook" parameterType="org.kim.entity.OrderInfo">
+        INSERT INTO keepbook(username,bookname,address,actor,isbn,sort)values
+        (#{username},#{bookname},#{address},#{actor},#{isbn},#{sort})
+    </insert>
+    <select id="seeKeepBook" parameterType="java.lang.String"  resultType="org.kim.entity.OrderInfo">
+        select * from keepbook where isbn = #{isbn}
+    </select>
+
+ <!--   <select id="seeHistoryBook" parameterType="java.lang.String"  resultType="org.kim.entity.OrderInfo">
+        select  *  from history where  isbn = #{isbn}
+    </select>-->
+
+
+    <insert id="BookHistory" parameterType="org.kim.entity.History">
+        INSERT INTO history(username,object)values
+        (#{username},#{object})
+    </insert>
+
+    <select id="BackBookInfo"  resultMap="BackBookInfoMap">
+        SELECT * FROM  orderinfo
+    </select>
+    <resultMap id="BackBookInfoMap" type="org.kim.entity.OrderInfo">
+
+        <result property="returntime" column="returntime"/>
+        <result property="address" column="address"/>
+        <result property="isbn"    column="isbn"/>
+        <result property="mail" column="mail"/>
+    </resultMap>
+
+
+
+
+
+    <!--<select id="selectAll" parameterType="cn.beihua.model.Homework" resultType="Homework">-->
+        <!--select job from jobmanage-->
+
+    <!--</select>-->
+
+     <!--&lt;!&ndash;完善个人信息&ndash;&gt;-->
+    <!--<insert id="saveInfo" parameterType="cn.beihua.model.stuInfo">-->
+       <!--insert into  studentInfo (stNub,stName,stSex,stTel,stClass) values(#{stNub},#{stName},#{stSex},#{stTel},#{stClass})-->
+    <!--</insert>-->
+
+    <!--<insert id="addjob" parameterType="java.lang.String">-->
+        <!--insert into  jobmanage (file) values( #{file} )-->
+    <!--</insert>-->
+
+   <!--&lt;!&ndash; 添加作业&ndash;&gt;-->
+    <!--<insert id="saveadd" parameterType="cn.beihua.model.Homework">-->
+        <!--insert into jobmanage(job,datatime,file) values(#{job},#{datatime},#{file})-->
+    <!--</insert>-->
+    <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">-->
+    <!--delete from user-->
+    <!--where id = #{id,jdbcType=INTEGER}-->
+    <!--</delete>-->
+    <!--&lt;!&ndash;<insert id="insert" parameterType="cn.yanxi.model.User">&ndash;&gt;-->
+    <!--&lt;!&ndash;insert into user (id, userName, password&ndash;&gt;-->
+    <!--&lt;!&ndash;)&ndash;&gt;-->
+    <!--&lt;!&ndash;values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}&ndash;&gt;-->
+    <!--&lt;!&ndash;)&ndash;&gt;-->
+    <!--&lt;!&ndash;</insert>&ndash;&gt;-->
+    <!--<update id="updateByPrimaryKey" parameterType="cn.yanxi.model.User">-->
+    <!--update user-->
+    <!--set userName = #{username,jdbcType=VARCHAR},-->
+    <!--password = #{password,jdbcType=VARCHAR}-->
+    <!--where id = #{id,jdbcType=INTEGER}-->
+    <!--</update>-->
+    <!--<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">-->
+    <!--select id, userName, password-->
+    <!--from user-->
+    <!--where id = #{id,jdbcType=INTEGER}-->
+    <!--</select>-->
+    <!--<select id="selectAll" resultMap="BaseResultMap">-->
+    <!--select id, userName, password-->
+    <!--from user-->
+    <!--</select>-->
+</mapper>
